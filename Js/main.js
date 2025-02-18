@@ -142,6 +142,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  //Email with Emailjs
+ document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form from reloading the page
 
+  emailjs.init("4IWosxwGjCyzcXY_l"); // Replace with your EmailJS Public Key
+
+  let serviceID = "service_ytm7ngj"; // Replace with your EmailJS Service ID
+  let templateID = "template_c45i54v"; // Replace with your EmailJS Template ID
+
+  let formData = {
+    to_name: "VN HaularesTech Muralidharan M",  // Your company or website name (recipient)
+    from_name: document.getElementById("name").value, // The name entered by the user
+    email: document.getElementById("email").value, // The email entered by the user
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
+  
+  let sendButton = document.getElementById("sendMessageButton");
+
+  sendButton.innerHTML = "Sending...";
+  sendButton.disabled = true; // Disable button while sending
+
+  emailjs.send(serviceID, templateID, formData)
+    .then(response => {
+      alert("Message sent successfully!");
+      sendButton.innerHTML = "Send Message";
+      sendButton.disabled = false; // Re-enable button
+      document.getElementById("contactForm").reset(); // Clear form after sending
+    })
+    .catch(error => {
+      alert("Error sending message: " + error);
+      sendButton.innerHTML = "Send Message";
+      sendButton.disabled = false; // Re-enable button
+    });
+});
 })(jQuery);
   
