@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //Email with Emailjs
+ //Email with Emailjs
  document.getElementById("contactForm").addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form from reloading the page
 
@@ -159,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
     message: document.getElementById("message").value,
   };
   
+
   let sendButton = document.getElementById("sendMessageButton");
 
   sendButton.innerHTML = "Sending...";
@@ -177,5 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
       sendButton.disabled = false; // Re-enable button
     });
 });
+
 })(jQuery);
   
