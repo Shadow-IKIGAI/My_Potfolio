@@ -1521,9 +1521,8 @@ html {
   background: #ffffff;
   box-shadow: inset 0 0 0 50px #ffffff;
 }
-.contact .contact-form .btn a {
-  color: var(--red);
-  text-decoration: none;
+.contact .contact-form .btn {
+  cursor: pointer; /* Make sure button is clickable */
 }
 .contact .contact-form .btn a:hover {
   color: var(--white);
